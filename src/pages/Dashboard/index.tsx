@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Container, Header, HeaderContent, Profile, Content, Schedule, NextAppointment, Calendar } from './styles';
+import {
+  Container,
+  Header,
+  HeaderContent,
+  Profile,
+  Content,
+  Schedule,
+  NextAppointment,
+  Section,
+  Appointment,
+  Calendar
+} from './styles';
 
 import logoImg from '../../assets/logo.svg';
 import { FiPower, FiClock } from 'react-icons/fi';
 import { useAuth } from '../../hooks/auth';
 
 const Dashboard: React.FC = () =>  {
+  const [selectedDate, setselectedDate] = useState(new Date());
   const { signOut, user } =  useAuth();
   return (
     <Container>
@@ -47,6 +59,46 @@ const Dashboard: React.FC = () =>  {
               </span>
             </div>
           </NextAppointment>
+          <Section>
+            <strong>Manhã</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+              <div>
+                <img src="https://avatars.githubusercontent.com/u/384398?s=460&u=07daf30d96adf7f0c763345a806d10d5b612cf15&v=4" alt="foto" />
+                <strong>Hugo Souza</strong>
+              </div>
+
+            </Appointment>
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+              <div>
+                <img src="https://avatars.githubusercontent.com/u/384398?s=460&u=07daf30d96adf7f0c763345a806d10d5b612cf15&v=4" alt="foto" />
+                <strong>Hugo Souza</strong>
+              </div>
+            </Appointment>
+
+          </Section>
+          <Section>
+            <strong>Tarde</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+              <div>
+                <img src="https://avatars.githubusercontent.com/u/384398?s=460&u=07daf30d96adf7f0c763345a806d10d5b612cf15&v=4" alt="foto" />
+                <strong>Hugo Souza</strong>
+              </div>
+            </Appointment>
+          </Section>
         </Schedule>
         <Calendar />
       </Content>
