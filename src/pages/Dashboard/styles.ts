@@ -170,10 +170,11 @@ export const Appointment = styled.div`
   }
 
   span {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      color: #f4ede8;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: #f4ede8;
+    width: 70px;
   }
 
   svg {
