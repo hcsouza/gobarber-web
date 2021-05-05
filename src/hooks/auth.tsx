@@ -80,12 +80,7 @@ const AuthProvider: React.FC = ({ children }) => {
 
 function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
-
-  if (!context) {
-    throw new Error('AuthProvider must be initialized.')
-  }
   return context;
-
 }
 
 export { AuthProvider, useAuth };
