@@ -1,12 +1,11 @@
 import React, {useCallback, useRef, useState } from 'react';
 import { Container, Content, AnimationContainer, Background } from './styles';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
 
@@ -27,7 +26,6 @@ const ForgotPassword: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { addToast } = useToast();
-  const history = useHistory();
 
   const handleSubmit = useCallback( async (data: ForgotPasswordFormData) =>  {
     try {
@@ -41,7 +39,6 @@ const ForgotPassword: React.FC = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
-      //history.push('/dashboard');
 
       await api.post('/password/forgot', {
         email: data.email,
